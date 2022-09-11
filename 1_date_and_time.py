@@ -8,12 +8,22 @@
 
 """
 
+from datetime import date, timedelta, datetime
+
 def print_days():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+
+    dt = date.today()
+    delta = timedelta(days=1)
+    yesterday = dt - delta
+    delta_2 = timedelta(days=30)
+    month_ago = dt - delta_2
+    print(f'Вчера было {yesterday}', '\n')
+    print(f'Сегодня {dt}', '\n')
+    print(f'30 дней назад было {month_ago}', '\n')
 
 
 def str_2_datetime(date_string):
@@ -21,7 +31,8 @@ def str_2_datetime(date_string):
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    date_dt = datetime.strptime(date_string, '%m/%d/%y %H:%M:%S.%f')
+    return date_dt
 
 if __name__ == "__main__":
     print_days()
